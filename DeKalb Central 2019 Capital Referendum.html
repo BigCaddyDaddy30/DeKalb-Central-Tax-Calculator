@@ -1,0 +1,160 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>2019 Capital Referendum Impact</title>
+</head>
+<body style="background-color:#d1d1d1;">
+    <header>
+        <Center><img src="https://dekalbcentral.net/pics/school-logo.png" alt="DeKalb Logo" style="width:150px;height:150px;" /></Center>
+        <Center><h1 style="font-size:175%;"><font face="verdana"><b>DeKalb County Central United School District</b></font></h1></Center>
+        <Center><h1 style="font-size:175%;"><font face="verdana"><b>2019 Capital Referendum</b></font></h1></Center><br />
+    </header>
+
+    <!--The section above the form-->
+    <main>
+        <font face="verdana">
+            <Center>
+                How to find your Gross Assessed Value:<br />
+                <a href="http://counties.xsoftin.com/dekalb/parcelsearch.aspx">1. Visit the DeKalb County Assessor's website and look for your Property Record Card.</a><br />
+                2. Refer to your most recent Annual Tax Statement from the County Treasurer. Table 1:Line 1a, 1b, or 1c.<br /><br />
+                <b> Estimated Impact of the Proposed School's Construction Referenda</b>
+            </Center>
+            <br />
+        </font>
+    </main>
+
+    <script src="Referendum Calculator.js"></script>
+
+    <!--Output Tax Changes-->
+    <table align="center" style="width:60%; border-collapse:collapse; text-align:center" border="1">
+        <tr>
+            <td>2020</td>
+            <td>2021</td>
+            <td>2022</td>
+        </tr>
+        <tr>
+            <td>Monthly</td>
+            <td>Monthly</td>
+            <td>Monthly</td>
+        </tr>
+        <tr>
+            <td id="monthlyZero"><b>0.0</b></td>
+            <td id="monthlyOne"><b>0.0</b></td>
+            <td id="monthlyTwo"><b>0.0</b></td>
+        </tr>
+        <tr>
+            <td>Annually</td>
+            <td>Annually</td>
+            <td>Annually</td>
+        </tr>
+        <tr>
+            <td id="annualZero"><b>0.0</b></td>
+            <td id="annualOne"><b>0.0</b></td>
+            <td id="annualTwo"><b>0.0</b></td>
+        </tr>
+    </table><br /><br />
+
+    <form id="form1">
+        <table cellpadding=10 align="center" style="width:60%; border-collapse:collapse" border="1">
+            <tr style="text-align:center">
+                <td>Enter Gross Assessed Value<br /><br /><input type="text" id="gav" name="gav" value="" /></td>
+                <td>What type of property is this?<br /><br /><input type="radio" id="propertyType1" name="propertyType" value="Homestead" checked />Homestead&nbsp;<input type="radio" id="propertyType2" name="propertyType" value="Agriculture" />Agriculture&nbsp;<input type="radio" id="propertyType3" name="propertyType" value="Business" />Business</td>
+            </tr>
+            <tr style="text-align:center">
+                <td colspan="2">
+                    Select Your Taxing District (Only Select One)<br /><br />
+                    <input type="radio" name="township" id="township1" value="Fairfield" />Fairfield Township&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="township" id="township2" value="Grant-Auburn" />City of Auburn - Grant Township&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="radio" name="township" id="township3" value="Grant" />Grant Township&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="township" id="township4" value="Jackson-Auburn" />City of Auburn - Jackson Township&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="radio" name="township" id="township5" value="Jackson" />Jackson Township&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br /><input type="radio" name="township" id="township6" value="Union-Auburn" />City of Auburn - Union Township&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="radio" name="township" id="township7" value="Richland" />Richland Township&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="township" id="township8" value="Corunna" />Town of Corunna&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="radio" name="township" id="township9" value="Smithfield" />Smithfield Township&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="township" id="township10" value="Grant-Waterloo" />Town of Waterloo - Grant Township&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+                    <input type="radio" name="township" id="township11" value="Union" />Union Township&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="township" id="township12" value="Smithfield-Waterloo" />Town of Waterloo - Smithfield Township&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="radio" name="township" id="township13" value="Ashley" />Town of Ashley&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="township" id="township14" value="Ashley-Steuben" />Town of Ashley - Steuben County&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </td>
+            </tr>
+            <tr style="text-align:center">
+                <td>
+                    Do you qualify for the 65 or over deduction?<br /><br />
+                    <input type="radio" id="olderTrue" name="older" value="true" />Yes&nbsp;<input type="radio" id="older" name="older" value="false" checked />No
+                </td>
+                <td>
+                    Do you qualify for the 65 or over circuit breaker credit?<br /><br />
+                    <input type="radio" id="olderCircuitTrue" name="olderCircuit" value="true" />Yes&nbsp;<input type="radio" id="olderCircuit" name="olderCircuit" value="false" checked />No
+                </td>
+            </tr>
+        </table>
+    </form>
+    <br />
+
+    <p style="text-align:center">
+        <input type="button" style="width:150px; height:50px" onclick="pressButton()" value="Calculate">
+    </p>
+    <br /><br />
+
+    <!--Informative Table of Tax Rates and the changes-->
+    <table style="width:100%; border-collapse:collapse; text-align:center" border="1">
+        <tr>
+            <th>Construction Referenda</th>
+            <th>Existing</th>
+            <th>With Referenda</th>
+        </tr>
+        <tr>
+            <td style="text-align:left">2019 Debt Service Tax Rate</td>
+            <td>$ 0.4053</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td style="text-align:left">Estimated 2020 Debt Service Tax Rate</td>
+            <td></td>
+            <td>$ 0.3402</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">Estimated 2020 Construction Referenda Tax Rate</td>
+            <td></td>
+            <td>$ 0.0498</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">Estimated 2020 Total Tax Rate</td>
+            <td></td>
+            <td>$ 0.3900</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><b>Estimated Net change from 2019 to 2020 due To Construction Referenda</b></td>
+            <td></td>
+            <td><b>$ (0.0153)</b></td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">Proposed Maximum Construction Referenda Tax Rate To Be Seen On The Ballot (2025)</td>
+            <td></td>
+            <td>$ 0.3391</td>
+        </tr>
+    </table>
+
+    <!--This is the notes section at the bottom of the page-->
+    <main style="font-size:80%;">
+        <font face="verdana">
+            <br /><br />
+            <b>Notes:</b><br />
+            1. &nbsp;&nbsp;&nbsp;&nbsp;The results of this calculator will differ from the calculator found on the Indiana Department of Local Government Finance's ("DLGF") web page. The DLGF's calculator will only present the maximum ballot rate of $0.3391 (Construction), without accounting for the roll off of non-exempt &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;debt or growth in assessed value.<br />
+            2. &nbsp;&nbsp;&nbsp;&nbsp;The total tax rate includes tax rates of other taxing districts in addition to the Town. The referenda liability will change in relation to changes with other overlapping and underlying district changes.<br />
+            3. &nbsp;&nbsp;&nbsp;&nbsp;Real property assessments are adjusted annually due to changes in market conditions. The referenda liability will change in relation to changes in parcel gross assessed values.<br />
+            4. &nbsp;&nbsp;&nbsp;&nbsp;Homestead parcels are assumed to have homestead, supplemental homestead and mortgage deductions.<br />
+            5. &nbsp;&nbsp;&nbsp;&nbsp;For simplicity, local income tax property tax credits have NOT been included in the tax calculator estimate and your actual tax bill may be less than what is estimated in the calculator.<br />
+        </font>
+    </main>
+</body>
+</html>
